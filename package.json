@@ -1,0 +1,45 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@reduxjs/toolkit": "^2.9.0",
+    "@videojs/http-streaming": "^3.17.2",
+    "axios": "^1.11.0",
+    "daisyui": "^5.0.50",
+    "hls.js": "^1.6.10",
+    "jwt-decode": "^4.0.0",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hot-toast": "^2.6.0",
+    "react-redux": "^9.2.0",
+    "socket.io-client": "^4.8.3",
+    "uuid": "^14.0.0",
+    "videojs-hls-quality-selector": "^2.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/video.js": "^7.3.58",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "video.js": "^7.21.3",
+    "videojs-contrib-quality-levels": "^3.0.0",
+    "videojs-http-source-selector": "^1.1.6"
+  }
+}
