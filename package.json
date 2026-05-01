@@ -18,7 +18,7 @@
     "daisyui": "^5.0.50",
     "hls.js": "^1.6.10",
     "jwt-decode": "^4.0.0",
-    "next": "15.4.6",
+    "next": "15.4.10",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hot-toast": "^2.6.0",
