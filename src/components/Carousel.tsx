@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 
 const Carousel = () => {
   const images = [
-    "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp",
-    "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp",
-    "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp",
-    "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp",
+    {path: "/dhurandar-title.jpg", id: 2},
+    {path: "/breaking-bad.jpg", id: 4},
+    {path: "/planet-earth.jpg", id: 5}
   ];
 
   const [current, setCurrent] = useState(0);
@@ -27,6 +26,11 @@ const Carousel = () => {
     setCurrent((prev) => (prev + 1) % images.length);
   };
 
+    function handleRouting(id: number){
+      window.location.href = `/video/play/${id}`;
+  }
+
+
   return (
     <div className="relative w-full h-[200px] sm:h-[600px] overflow-hidden">
       {/* Slides */}
@@ -35,14 +39,18 @@ const Carousel = () => {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {images.map((src, i) => (
-          <div key={i} className="w-full flex-shrink-0 relative">
+          <div key={i} 
+          onClick={() => handleRouting(src.id!)}
+          className="w-full flex-shrink-0 relative hover:cursor-pointer" 
+          
+          >
             <img
-              src={src}
-              className="w-full h-full object-cover"
+              src={src.path}
+              className="w-full h-full object-contain"
               alt={`slide-${i}`}
             />
             {/* Optional fade overlay for polish */}
-            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+            <div  className="absolute inset-0 bg-black/20 pointer-events-none" />
           </div>
         ))}
       </div>

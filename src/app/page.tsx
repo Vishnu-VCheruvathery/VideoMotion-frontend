@@ -3,8 +3,11 @@
 import Carousel from "@/components/Carousel";
 import List from "@/components/List";
 import { socket } from "@/socket/socket";
+import { clearAuth } from "@/store/authSlice";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 type CardData = {
     id: number,
@@ -28,7 +31,8 @@ export default function Home() {
   "Tv-Series": [],
   Documentary: []
 });
-   
+   const dispatch = useDispatch()
+
    const [loading, setLoading] = useState(true)
 
    useEffect(() => {
@@ -40,6 +44,23 @@ export default function Home() {
     console.log('Disconnected')
   })
 }, [])
+
+    useEffect(() => {
+         const token = localStorage.getItem("token");
+         if(token){
+          try {
+            const decoded = jwtDecode(token);
+            const currentTime = Date.now() / 1000;
+            
+            if(decoded.exp! < currentTime){
+                dispatch(clearAuth())
+            }
+
+          } catch (error) {
+            dispatch(clearAuth())
+          }
+         }
+    }, [dispatch])
 
 
    const getContent = async () => {

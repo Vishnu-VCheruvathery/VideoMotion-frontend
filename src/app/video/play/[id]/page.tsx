@@ -171,7 +171,7 @@ const handlePlayerReady = (player: videojs.Player) => {
 
     <div className="w-4/5 border border-gray-200 h-[200px] rounded-md p-2">
       <div className="w-full flex justify-between">
-        <p className="text-white text-2xl font-bold">Breaking-Bad</p>
+        <p className="text-white text-2xl font-bold">{contentData?.title}</p>
         {contentData?.type == 'Tv-Series' ? <p className="text-white text-xl font-bold">Episode: {currentEpisode?.episode}</p> : null}
       </div>
       <div className="w-full mt-5">
