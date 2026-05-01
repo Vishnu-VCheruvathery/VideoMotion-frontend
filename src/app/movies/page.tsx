@@ -33,7 +33,7 @@ const MoviePage = () => {
 
    const getContent = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/videos/content/home?filter=movie')
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/content/home?filter=movie`)
       const backendData = response.data;
       console.log(backendData)
       const groupedData: MoviePageData = {

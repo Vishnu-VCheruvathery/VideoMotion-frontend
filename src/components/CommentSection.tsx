@@ -33,7 +33,7 @@ const CommentSection = ({id}: {id: number}) => {
 
     const getComments = async() => {
       try {
-        const response = await axios.get(`http://localhost:3000/videos/comment?id=${id}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/comment?id=${id}`)
         console.log('the comments: ', response.data)
         if(response.status == 200){
           setComments(response.data)
@@ -46,7 +46,7 @@ const CommentSection = ({id}: {id: number}) => {
    const addComment = async ({ comment, parentId }: { comment: string; parentId?: number }) => {
   try {
     const response = await axios.post(
-      'http://localhost:3000/videos/comment/create',
+      `${process.env.NEXT_PUBLIC_AP_URL}/videos/comment/create`,
       {
         text: comment,
         userId: auth.user?.id,

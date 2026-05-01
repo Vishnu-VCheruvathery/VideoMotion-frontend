@@ -20,7 +20,7 @@ const SignUpPage = () => {
 
       const signUp = async() => {
         try {
-          const response = await axios.post('http://localhost:3000/users/signup', formData);
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_AP_URL}/users/signup`, formData);
           console.log(response.data);
          
           if(response.status === 200){
@@ -45,7 +45,7 @@ const SignUpPage = () => {
 
       const Login = async() => {
         try {
-          const response = await axios.post('http://localhost:3000/users/login', formData);
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_AP_URL}/users/login`, formData);
           console.log(response.data)
 
           if(response.status === 200){

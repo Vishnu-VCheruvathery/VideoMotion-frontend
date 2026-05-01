@@ -86,7 +86,7 @@ useLayoutEffect(() => {
    useEffect(() => {
     if(query.length > 0){
        const getData = setTimeout(async() => {
-        const response = await axios.get(`http://localhost:3000/videos/search?query=${query}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/search?query=${query}`)
         if(response.status === 200){
           setSearchResults(response.data)
         }

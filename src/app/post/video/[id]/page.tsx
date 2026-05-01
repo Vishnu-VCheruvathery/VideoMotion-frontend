@@ -23,7 +23,7 @@ const UploadPage = () => {
    const [episode, setEpisode] = useState(0)
    const getContent = async() =>{
       try {
-         const response = await axios.get(`http://localhost:3000/videos/content?id=${params.id}`)
+         const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/content?id=${params.id}`)
          console.log(response.data)
          if(response.status === 200){
             setContentData(response.data.content)
@@ -56,7 +56,7 @@ const UploadPage = () => {
         }
         formData.append('file', videoRef as Blob)
         formData.append('taskId', taskId)
-        const response = await axios.post('http://localhost:3000/videos/upload', formData)
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_AP_URL}/videos/upload`, formData)
         console.log(response.data);
         if(response.status === 200){
         

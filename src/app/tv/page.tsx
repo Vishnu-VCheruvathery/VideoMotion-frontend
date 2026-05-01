@@ -33,7 +33,7 @@ const TvPage = () => {
 
    const getContent = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/videos/content/home?filter=tv')
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/content/home?filter=tv`)
       const backendData = response.data;
       console.log(backendData)
       const groupedData: TvPageData = {

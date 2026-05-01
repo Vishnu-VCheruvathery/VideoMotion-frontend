@@ -96,7 +96,7 @@ const Profile = () => {
 
   try {
     const response = await axios.post(
-      'http://localhost:3000/users/update',
+      `${process.env.NEXT_PUBLIC_AP_URL}/users/update`,
       formData
     );
 

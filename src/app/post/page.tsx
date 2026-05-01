@@ -31,7 +31,7 @@ const PostPage = () => {
         formData.append('genre', genre)
         formData.append('type', type)
         try {
-            const response = await axios.post('http://localhost:3000/videos/post', formData)
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_AP_URL}/videos/post`, formData)
             console.log(response.data)
             if(response.status === 200 && response.data){
                 toast.success(response.data.message)
