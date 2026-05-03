@@ -61,7 +61,7 @@ const [loading, setLoading] = useState(true)
 const getContent = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/videos/content?id=${id}`
+      `${process.env.NEXT_PUBLIC_AP_URL}/videos/content?id=${id}`
     );
 
     if (response.status === 200) {
@@ -100,7 +100,7 @@ const getContent = async () => {
 
   const getContentLikeThis = async() => {
     try {
-      const response = await axios.get(`http://localhost:3000/videos/content/genre?filter=${contentData?.genre}`)
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_AP_URL}/videos/content/genre?filter=${contentData?.genre}`)
       if(response.status === 200){
         setSimilar(response.data)
       }
