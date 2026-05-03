@@ -106,9 +106,9 @@ useLayoutEffect(() => {
       <div className="w-full h-24 border-b border-gray-800 flex items-center px-8 bg-black justify-between">
 
         {/* Logo */}
-        <a href="http://localhost:3001" className="text-2xl sm:text-4xl text-white">
+        <Link href="/" className="text-2xl sm:text-4xl text-white">
           VideoMotion
-        </a>
+        </Link>
 
         {/* CENTER */}
         {showSearch ? (

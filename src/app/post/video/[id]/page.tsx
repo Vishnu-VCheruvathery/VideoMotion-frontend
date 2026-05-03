@@ -1,7 +1,7 @@
 'use client'
 import { socket } from '@/socket/socket'
 import axios from 'axios'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { v4 as uuidv4 } from 'uuid';
@@ -15,8 +15,9 @@ type ContentData = {
 
 
 const UploadPage = () => {
-
+   
   const params = useParams()
+  const router = useRouter()
    const [videoRef, setVideoRef] = useState<File| null>(null)
    const [progress, setProgress] = useState<number | null>(null)
    const [contentData, setContentData] = useState<ContentData | null>(null)
@@ -72,6 +73,11 @@ useEffect(() => {
   const handler = (data: number) => {
     console.log('progress:', data)
     setProgress(data)
+    if(data === 100){
+      setTimeout(() => {
+        router.push('/post')
+      }, 3000)
+    }
   }
 
   socket.on('progress', handler)
